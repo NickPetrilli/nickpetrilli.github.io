@@ -1,19 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import NavBar from './Navbar.js';
+import Footer from './Footer.js';
+import Resume from './Pages/Resume.js';
+import Projects from './Pages/Projects.js';
+import Contact from './Pages/Contact.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello! I'm Nick Petrilli, a Software Developer.</p>
-      </header>
+          <NavBar />
 
-      <footer>
-        <p>&copy; 2024 Nick Petrilli. All rights reserved.</p>
-      </footer>
-    </div>
+          <Routes>
+          {/* Define routes */}
+          <Route path = "/resume" element={<Resume />} />
+          <Route path = "/projects" element={<Projects />} />
+          <Route path = "/contact" element={<Contact />} />
+
+          </Routes>
+
+          <Footer />
+        </div>
   );
 }
 
