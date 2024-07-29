@@ -26,7 +26,7 @@ const projects = [
         title: 'FoxLift',
         description: 'A mobile ride sharing application for students that uses Google Authentication and the Google Maps API.',
         imageUrl: '/images/FoxLift.png',
-        demoUrl: 'https://example.com/project-two-demo',
+        demoUrl: '/videos/NewUserDemo.mp4',
         sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
         languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
         longDescription: ''
