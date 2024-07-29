@@ -3,8 +3,8 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
     return (
-        <div style={{ textAlign: 'center'}}>
-            <h1>Connect with Me</h1>
+        <div style={{ textAlign: 'center', backgroundColor: '#0f0e0e'}}>
+             <h1 style={{ textAlign: 'center', color: '#f9f9f9' }}> Connect with Me </h1>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '2rem' }}>
                 {/* GitHub Icon */}
                 <a 
@@ -12,7 +12,7 @@ const Contact = () => {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label="GitHub"
-                    style={{ color: '#000000' }} 
+                    style={{ color: '#f9f9f9' }} 
                 >
                     <FaGithub />
                 </a>

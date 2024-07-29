@@ -24,11 +24,11 @@ const projects = [
     {
         id: 2,
         title: 'FoxLift',
-        description: 'A mobile ride sharing application for students.',
+        description: 'A mobile ride sharing application for students that uses Google Authentication and the Google Maps API.',
         imageUrl: '/images/FoxLift.png',
         demoUrl: 'https://example.com/project-two-demo',
         sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
-        languages: ['React Native', 'JavaScript', 'SQL', 'Linux'],
+        languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
         longDescription: ''
     },
     {
@@ -36,7 +36,7 @@ const projects = [
       title: 'NickOS',
       description: 'A browser based operating system.',
       imageUrl: '/images/Marist Seal.png', //Placeholder
-      demoUrl: '/NickOS/index.html',
+      demoUrl: '../NickOS/index.html',
       sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
       languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
       longDescription: ''
@@ -56,7 +56,7 @@ const projects = [
     title: 'Charlie',
     description: 'A client-server Java based Blackjack application with plugins for making the correct play according to the basic strategy, and making the correct bet by card counting.',
     imageUrl: '/images/charlie.png',
-    demoUrl: 'https://example.com/project-two-demo',
+    demoUrl: '/videos/Charlie-demo.webm',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Charlie',
     languages: ['Java', 'Maven'],
     longDescription: ''
@@ -78,23 +78,22 @@ const projects = [
     imageUrl: '/images/microchip.jpg', 
     demoUrl: 'https://example.com/project-two-demo',
     sourceCodeUrl: 'https://github.com/NickPetrilli/ParallelProcessing',
-    languages: ['C++'],
+    languages: ['C++', 'Python'],
     longDescription: ''
   },
   {
     id: 8,
     title: 'Covid-19 Pooled Testing Simulator',
-    description: 'Developed pooled testing simulator used at Marist to test students for covid.',
+    description: 'Developed pooled testing simulator based on the system used at Marist College to test students for covid.',
     imageUrl: '/images/covid.jpg', 
     demoUrl: 'https://example.com/project-two-demo',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
     languages: ['Java'],
     longDescription: 'The COVID-19 Pooled Testing Simulator is a Java-based application designed to simulate the process of pooled testing for detecting COVID-19 infections within a population.' + 
-    ' Pooled testing is an efficient method that involves grouping individuals and testing them collectively, reducing the number of tests needed compared to individual testing. This simulation helps understand how pooled testing can be implemented and its effectiveness in identifying infected individuals in a large population.' +
+    ' Pooled testing is an efficient method that involves grouping individuals and testing them collectively, reducing the number of tests needed compared to individual testing. This simulation helps understand how pooled testing can be implemented and its effectiveness in identifying infected individuals in a large population.\n' +
     ' Person Class: Represents an individual in the population with an infection status (either sick or not sick).' +
     ' ListPeople Class: Manages a list of Person objects, representing the entire population. It includes methods to add people to the list and infect a certain percentage of them based on a specified infection rate.' +
     ' PooledTesting Class: Contains the main logic for the simulation, including initializing the population, infecting individuals, and performing the pooled testing.' +
-
 
     ' The user is prompted to enter the population size (e.g., 1,000, 10,000, 100,000, or 1,000,000).' +
     ' A list of Person objects is created to represent the population. The addPeople method adds the specified number of Person objects to the list, each initially marked as not sick.' +
@@ -113,7 +112,11 @@ const projects = [
     ' If both smaller groups show infection, each member of both groups is tested individually to identify the infected individuals.' +
     ' Results:' +
 
-    ' The total number of tests conducted is counted and printed at the end of the simulation. This count helps in understanding the efficiency of pooled testing in reducing the number of tests compared to individual testing.'
+    ' The total number of tests conducted is counted and printed at the end of the simulation. This count helps in understanding the efficiency of pooled testing in reducing the number of tests compared to individual testing.' +
+    '1,000 People - 255 Tests' +
+    '10,000 People - 2,560 Tests' +
+    '100,000 People - 25,686 Tests' +
+    '1,000,000 People - 256,206 Tests'
   },
     
 ];
@@ -135,7 +138,7 @@ const languageIcons = {
   'HTML': <FaHtml5 style={{ color: '#E34F26' }} />, // Red
   'CSS': <FaCss3 style={{ color: '#1572B6' }} />, // Blue
   'NodeJS': <DiNodejs style={{ color: '#008000' }} />, //Green
-  'SQL': <SiMysql style={{ color: '#1572B6' }} />, //Blue
+  'MySQL': <SiMysql style={{ color: '#1572B6' }} />, //Blue
   'SQLite': <SiSqlite style={{ color: '#1572B6' }} />, //Blue
   'C++': <SiCplusplus style={{ color: '#1572B6' }}  />, //Blue
   'Linux': <FcLinux />
@@ -153,8 +156,8 @@ const Projects = () => {
     };
 
     return (
-        <div style={{ padding: '2rem', backgroundColor: '#f9f9f9', minHeight: '100vh', overflowY: 'auto' }}>
-            <h1 style={{ textAlign: 'center' }}>My Projects</h1>
+        <div style={{ padding: '2rem', backgroundColor: '#0f0e0e', minHeight: '100vh', overflowY: 'auto' }}>
+            <h1 style={{ textAlign: 'center', color: '#f9f9f9' }}> My Projects </h1>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
                 {projects.map((project) => (
                     <div
@@ -207,7 +210,7 @@ const Projects = () => {
                             justifyContent: 'center', 
                             gap: '0.5rem', 
                             padding: '1rem', 
-                            borderTop: '1px solid #eee' // Optional, for better visual separation
+                            borderTop: '1px solid #eee' 
                         }}>
                             {project.languages.map(language => (
                                 <div key={language} title={language} style={{ fontSize: '1.5rem', color: '#333' }}>
