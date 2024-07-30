@@ -1,0 +1,90 @@
+/* TSOS.css */
+
+body {
+  background: #909193 url(distrib/images/linen.png) repeat;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  color: black;
+  font-size: 24pt;
+  font-weight: normal;
+  font-style: italic;
+  border-bottom: 1px solid black;
+}
+
+h2 {
+  color: black;
+  font-size: 20pt;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h3 {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: 16pt;
+  font-weight: normal;
+  font-style: normal;
+}
+
+#display {
+  background-color:#DFDBC3;
+  border: 2px solid red;
+  cursor: default;
+}
+
+.start_button {
+  width: 100px;
+  background-color: green;
+  color: white;
+  border: white;
+}
+
+.halt_button {
+  width: 100px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+.reset_button {
+  width: 100px;
+  background-color: blue;
+  color: white;
+}
+
+.singleStep_button {
+  width: 200px;
+  background-color: turquoise;
+  color: black;
+}
+
+.step_button {
+  width: 50px;
+  background-color: rgb(9, 179, 225);
+  color: white;
+}
+
+.memoryTable {
+  border: 1px solid black;
+  border-spacing: 0;
+}
+
+.cpuTable {
+  border: 1px solid black;
+  border-spacing: 0;
+  text-align: center;
+}
+
+.pcbTable {
+  border: 1px solid black;
+  text-align: center;
+}
+.footerText {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  text-align: center;
+}
