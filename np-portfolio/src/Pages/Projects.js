@@ -36,11 +36,23 @@ const projects = [
       title: 'NickOS',
       description: 'A browser based operating system.',
       imageUrl: '/images/Marist Seal.png', //Placeholder
-      demoUrl: '../NickOS/index.html',
+      demoUrl: '/NickOS/index.html',
       sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
       languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
       longDescription: ''
     },
+
+    {
+    id: 5,
+    title: 'Charlie',
+    description: 'A client-server Java based Blackjack application with plugins for making the correct play according to the basic strategy, and making the correct bet by card counting.',
+    imageUrl: '/images/charlie.png',
+    demoUrl: '/videos/Charlie-demo.webm',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/Charlie',
+    languages: ['Java', 'Maven'],
+    longDescription: ''
+    },
+
     {
     id: 4,
     title: 'tsiraM-6502',
@@ -51,22 +63,13 @@ const projects = [
     languages: ['TypeScript'],
     longDescription: ''
     },
-  {
-    id: 5,
-    title: 'Charlie',
-    description: 'A client-server Java based Blackjack application with plugins for making the correct play according to the basic strategy, and making the correct bet by card counting.',
-    imageUrl: '/images/charlie.png',
-    demoUrl: '/videos/Charlie-demo.webm',
-    sourceCodeUrl: 'https://github.com/NickPetrilli/Charlie',
-    languages: ['Java', 'Maven'],
-    longDescription: ''
-  },
+
     {
     id: 6,
     title: 'AI Labs',
     description: 'Created convolutional neural networks with backpropagation for the Iris, MNIST, and Fashion MNIST datasets.',
     imageUrl: '/images/neural-network.jpg', 
-    demoUrl: 'https://example.com/project-two-demo',
+    demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/AI',
     languages: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'NumPy'],
     longDescription: ''
@@ -76,7 +79,7 @@ const projects = [
     title: 'Parallel Processing',
     description: 'Created programs to parse large text files and count each word frequency in parallel using C++ threads, OpenMP, MPI, and CUDA.',
     imageUrl: '/images/microchip.jpg', 
-    demoUrl: 'https://example.com/project-two-demo',
+    demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/ParallelProcessing',
     languages: ['C++', 'Python'],
     longDescription: ''
@@ -86,7 +89,7 @@ const projects = [
     title: 'Covid-19 Pooled Testing Simulator',
     description: 'Developed pooled testing simulator based on the system used at Marist College to test students for covid.',
     imageUrl: '/images/covid.jpg', 
-    demoUrl: 'https://example.com/project-two-demo',
+    demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
     languages: ['Java'],
     longDescription: 'The COVID-19 Pooled Testing Simulator is a Java-based application designed to simulate the process of pooled testing for detecting COVID-19 infections within a population.' + 
@@ -186,14 +189,16 @@ const Projects = () => {
                             <h2 style={{ fontSize: '1.5rem' }}>{project.title}</h2>
                             <p>{project.description}</p>
                             <div style={{ marginTop: 'auto' }}>
-                                <a 
-                                    href={project.demoUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    style={{ marginRight: '1rem', color: '#007bff', textDecoration: 'none' }}
-                                >
-                                    View Demo
-                                </a>
+                                {project.demoUrl && project.demoUrl.trim() !== '' && (
+                                    <a 
+                                        href={project.demoUrl} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        style={{ marginRight: '1rem', color: '#007bff', textDecoration: 'none' }}
+                                    >
+                                        View Demo
+                                    </a>
+                                )}
                                 <a 
                                     href={project.sourceCodeUrl} 
                                     target="_blank" 
@@ -221,7 +226,7 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
-
+    
             {selectedProject && (
                 <div 
                     onClick={handleCloseModal}
@@ -276,14 +281,16 @@ const Projects = () => {
                             <h2 style={{ fontSize: '2rem' }}>{selectedProject.title}</h2>
                             <p>{selectedProject.longDescription || selectedProject.description}</p>
                             <div style={{ marginTop: '1rem' }}>
-                                <a 
-                                    href={selectedProject.demoUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    style={{ marginRight: '1rem', color: '#007bff', textDecoration: 'none' }}
-                                >
-                                    View Demo
-                                </a>
+                                {selectedProject.demoUrl && selectedProject.demoUrl.trim() !== '' && (
+                                    <a 
+                                        href={selectedProject.demoUrl} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        style={{ marginRight: '1rem', color: '#007bff', textDecoration: 'none' }}
+                                    >
+                                        View Demo
+                                    </a>
+                                )}
                                 <a 
                                     href={selectedProject.sourceCodeUrl} 
                                     target="_blank" 
