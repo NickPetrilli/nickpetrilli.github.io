@@ -196,12 +196,13 @@ main {
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 100%; 
+  max-width: 400px; 
+  height: auto; 
   border: 5px solid #0f0;
   animation: pulse 2s infinite; /* Slight pulse effect for profile picture */
   transition: transform 0.3s ease;
+  border-radius: 0; 
 }
 
 .profile-pic:hover {
