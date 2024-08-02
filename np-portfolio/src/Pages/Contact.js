@@ -7,7 +7,7 @@ const Contact = () => {
             display: 'flex',
             flexDirection: 'column',
             minHeight: '100vh',
-            backgroundColor: '#0f0e0e'
+            backgroundColor: 'black'
         }}>
             <div style={{ 
                 flex: '1',

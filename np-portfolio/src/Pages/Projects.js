@@ -18,8 +18,8 @@ const projects = [
         languages: ['Java', 'Java SpringBoot', 'React', 'NodeJS', 'HTML', 'CSS', 'SQLite'],
         longDescription: 'SysMon+ is a Windows based system monitoring application that monitors CPU, Memory/RAM, and disks or other storage devices.' + 
         'It also tracks all processes currently running on the system. Total utilization of CPU, Memory, etc are tracked, as well as on a per process basis.' + 
-        'After the application has run for some time, reports on average utilization are available for many different time intervals (minimum 5 minutes, and up to 24 hours).' + 
-        'For this project, I specifically worked on the backend portion. This included collecting all the various metrics and inserting them into the database every 10 seconds, and creating the API endpoints for the frontend to fetch from.'
+        ' After the application has run for some time, reports on average utilization are available for many different time intervals (minimum 5 minutes, and up to 24 hours).' + 
+        ' For this project, I specifically worked on the backend portion. This included collecting all the various metrics and inserting them into the database every 10 seconds, and creating the API endpoints for the frontend to fetch from.'
     },
     {
         id: 2,
@@ -29,17 +29,35 @@ const projects = [
         demoUrl: '/videos/FoxLiftDemos.mp4',
         sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
         languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
-        longDescription: ''
+        longDescription: 'FoxLift is a mobile ride sharing application for students to carpool to shared destinations. Users begin by creating an account, which can be done by logging in via their Google account.' +
+        ' After using the Google Authentication, users select if they have a car designating them as drivers, as opposed to passengers. The Home page uses the Google Maps API and allows users to select their' +
+        ' orgin and destination for the ride. The route is traced and shown on the map to show the distance in miles, and the time duration for the trip. Before confirming the ride, they must select a date and time' +
+        ' for the ride. The Activity page shows all upcoming trip requests from any user using the app, all past trips that occured, and a personalized page for all of your own trips (past or present).' +
+        ' Other drivers and passengers can browse the Activity page to join in on rides if they want to go to the same destination. They can filter by destination or give a range of times to see what trips are occurring then.' +
+        ' Once a desired ride is found, users can click on the ride and join in on it. Once joined, they will now have the option to message any other users that are in on that ride to coordinate. To protect anonymity, when a user creates an account' +
+        ' they are given a random combination of a color, followed by an animal. Only you can see your name and email on your profile, available on the Profile page, while other users can only see your pseudoname. The Profile page also stores your favorite' +
+        ' locations, for easier access for future rides. This can be done via the Home page, typing in the destination in the Google Maps section, and clicking "Add to Favorites". The Profile page also gives the user the ability to log out,' +
+        ' and lists the terms and conditions for using the app. I worked on the frontend portion of the app, incorporating the Google Maps API on the Home page and features in the Activity and Messaging pages. The application is hosted on a Linux server' +
+        ' and all data is stored in a MySQL database.'
     },
     {
       id: 3,
       title: 'NickOS',
       description: 'A browser based operating system.',
-      imageUrl: '/images/Marist Seal.png', //Placeholder
+      imageUrl: '/images/OS.png', 
       demoUrl: '/NickOS/index.html',
       sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
       languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
-      longDescription: ''
+      longDescription: 'NickOS is a browser-based Operating System in TypeScript. The operating system project is an evolving multi-phase endeavor designed to enhance and expand an OS capabilities.' +  
+        ' It begins with fundamental improvements including customizing system commands, adding new shell functionalities, and enhancing the visual elements such as a graphic task bar that displays real-time status messages and system time.' + 
+        ' The project also focuses on refining the command-line interface by implementing features like scrolling, handling special characters, and command history, while also adding new error-handling capabilities.' + 
+        ' In the second phase, the project advances by integrating memory management and process control functionalities. It involved loading 6502 machine language code into memory, creating and managing process control blocks (PCBs), and executing programs while updating system status in real time.' +  
+        ' Key features include real-time synchronization with CPU cycles, command-based execution of programs, and the ability to manage multiple programs with single-step execution and interruption capabilities.' + 
+        ' The third phase further develops the OS by enabling concurrent execution of multiple user programs. This includes implementing Round Robin scheduling, managing process queues, and adding commands to handle memory partitions, process management, and system status display.' +
+        ' Enhancements in this phase focus on efficient process scheduling, context switching, and error handling.' + 
+        ' The final phase introduces a local file system and virtual memory management to support more processes than the available physical memory. This involves implementing disk operations such as file creation, reading, writing, and deletion, and developing a disk system driver.' + 
+        ' The project also incorporates virtual memory techniques to manage process swapping between memory and disk, ensuring the OS can handle multiple concurrent processes efficiently.' + 
+        ' Overall, the project aims to create a sophisticated OS simulation with enhanced functionalities, including custom commands, improved memory management, and advanced process and file system handling. Each phase builds upon the previous, culminating in a robust and versatile operating system prototype. '
     },
 
     {
@@ -50,7 +68,13 @@ const projects = [
     demoUrl: '/videos/Charlie-demo.webm',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Charlie',
     languages: ['Java', 'Maven'],
-    longDescription: ''
+    longDescription: 'Charlie is a client-server based Blackjack application written in Java. The name Charlie comes from the rule that if the player hand has 5 cards with values less than or equal to 21, it is an automatic win.' +
+    ' I was given a base version of the project, and added plugins for enhancing the playing experience. ' + 
+    ' First I added different side bet rules, including all combinations of Super 7, Exactly 13, and Royal Match with their different payout amounts. I also implemented the basic strategy, analyzing' + 
+    ' the current player hand and the dealer up card with an advisor to popup with advice of the correct play. Next, I implemented the Hi-Lo card counting strategy, which includes a running count and true count' +
+    ' to calculate the most optimal bet. The running count is calculated like this: A, 10, J, Q, K → Add -1 to count, 2 - 6 → Add +1 to count, 7 - 9 → Add 0 to count, and the count resets when the deck is shuffled.' +
+    ' The true count is calculated by dividing the running count by the number of decks remaining in the shoe. This true count is the optimal number of chips to bet, essentially trying to predict if a favorable hand will come next, resulting in a larger bet.' +
+    ' While the player has the option to use the advisor to make the correct play according to the basic strategy, I implemented two bots to play alongside with that always make the correct play.'
     },
 
     {
@@ -58,7 +82,7 @@ const projects = [
     title: 'tsiraM-6502',
     description: 'A virtual 6502 microprocessor.',
     imageUrl: '/images/tsiraM.jpeg', 
-    demoUrl: 'https://example.com/project-two-demo',
+    demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/tsiraM-6502',
     languages: ['TypeScript'],
     longDescription: ''
@@ -159,7 +183,7 @@ const Projects = () => {
     };
 
     return (
-        <div style={{ padding: '2rem', backgroundColor: '#0f0e0e', minHeight: '100vh', overflowY: 'auto' }}>
+        <div style={{ padding: '2rem', backgroundColor: 'black', minHeight: '100vh', overflowY: 'auto' }}>
             <h1 style={{ textAlign: 'center', color: '#f9f9f9' }}> My Projects </h1>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
                 {projects.map((project) => (

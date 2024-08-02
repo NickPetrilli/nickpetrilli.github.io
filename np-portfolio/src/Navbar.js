@@ -6,9 +6,7 @@ const NavBar = () => {
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item">
-          <Link to = "/"> 
-            <img src="/images/pepe.png" alt="Home" style={{ width: '75px', height: '50px' }} />
-          </Link>
+          <Link to = "/"> Home</Link>
         </li>
         <li className="nav-item"><Link to="/resume">Resume</Link></li>
         <li className="nav-item"><Link to="/projects">Projects</Link></li>
