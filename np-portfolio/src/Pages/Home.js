@@ -1,5 +1,4 @@
 import React from 'react';
-import Projects from './Projects';
 
 const Home = () => {
   return (
@@ -17,7 +16,6 @@ const Home = () => {
         </p>
       </div>
     </div>
-    <Projects />
     </>
   );
 };
