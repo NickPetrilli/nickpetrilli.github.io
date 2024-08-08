@@ -18,9 +18,18 @@ const projects = [
         languages: ['Java', 'Java SpringBoot', 'React', 'NodeJS', 'HTML', 'CSS', 'SQLite'],
         longDescription: 'SysMon+ is a Windows based system monitoring application that monitors CPU, Memory/RAM, and disks or other storage devices.' + 
         'It also tracks all processes currently running on the system. Total utilization of CPU, Memory, etc are tracked, as well as on a per process basis.' + 
-        ' After the application has run for some time, reports on average utilization are available for many different time intervals (minimum 5 minutes, and up to 24 hours).' + 
+        ' The web application home page consists of glance views for CPU, Memory and Disk information. This consists of the name of their CPU, their total utilization, graphs illustrating how the utilization fluctuates over time, and a list of the top three processes for that component.' +
+        ' The user can also view detailed information about each component by clicking the CPU name, the graph or the utilization display, which will display more metrics.' + 
+        ' Detail view for the CPU includes the processor current speed, processor max speed, number of cores, number of processes running, and the number of threads executing. ' +
+        ' The Memory detail view contains total memory installed on the system, how much of that memory is used, and how much of that memory is available.' +
+        ' The Disk detail view contains the selected disks read and write speed, the amount of swap space that is currently being used, the amount of swap space available, as well as the swap utilization percentage.' +
+        ' By clicking on the top processes of one of the hardware components, the user will be routed to the Process page, sorted by the usage based on the hardware component they clicked which is indicated with the gray color.' +
+        ' While on the process page, users can click on the other hardware components to sort by their usage, descending, or click on the already selected component to sort ascending.' + 
+        ' Using the navbar on the top of the application, users can click on the Reports button to see the average utilization across many different time intervals (minimum 5 minutes, and up to 24 hours).' +
+        ' All metrics are stored in a SQLite database, and to prevent the database from getting too large, we prune it every 5 minutes to delete records that are a week old.' + 
         ' For this project, I specifically worked on the backend portion. This included collecting all the various metrics and inserting them into the database every 10 seconds, and creating the API endpoints for the frontend to fetch from.'
     },
+
     {
         id: 2,
         title: 'FoxLift',
@@ -40,6 +49,7 @@ const projects = [
         ' and lists the terms and conditions for using the app. I worked on the frontend portion of the app, incorporating the Google Maps API on the Home page and features in the Activity and Messaging pages. The application is hosted on a Linux server' +
         ' and all data is stored in a MySQL database.'
     },
+
     {
       id: 3,
       title: 'NickOS',
@@ -59,8 +69,6 @@ const projects = [
         ' The project also incorporates virtual memory techniques to manage process swapping between memory and disk, ensuring the OS can handle multiple concurrent processes efficiently.' + 
         ' Overall, the project aims to create a sophisticated OS simulation with enhanced functionalities, including custom commands, improved memory management, and advanced process and file system handling. Each phase builds upon the previous, culminating in a robust and versatile operating system prototype. '
     },
-
-    
 
     {
     id: 4,
@@ -101,7 +109,7 @@ const projects = [
     ' Overall, this TypeScript code provides a comprehensive simulation of a 6502 microprocessor system, demonstrating the interaction between various hardware components, the execution of CPU instructions, and the handling of interrupts. The simulation models the behavior of a computer system through structured and modular components, showcasing fundamental concepts in computer architecture and system design.'
     },
 
-  {
+    {
     id: 6,
     title: 'Covid-19 Pooled Testing Simulator',
     description: 'Developed pooled testing simulator based on the system used at Marist College to test students for covid.',
@@ -146,9 +154,34 @@ const projects = [
     demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/AI',
     languages: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'NumPy'],
-    longDescription: ''
-  },
-  {
+    longDescription: 'Lab 1: Introduction to Google Colab and TensorFlow.' +
+    ' Lab 2: Focuses on practicing Python programming with input-output operations in Google Colab. The lab involves working with the Iris dataset, a well-known dataset in AI that includes both continuous and categorical data.' +  
+    ' For this lab, instead of using advanced libraries like TensorFlow, Pandas, or NumPy for this exercise, we relied on basic Python functionality. The tasks include downloading a CSV file of the Iris dataset, inspecting it, and calculating statistics such as the minimum and maximum values for flower measurements, and the counts of different species.' + 
+    ' Then, we ran the Python code to process the data, correct initial errors in statistics, and complete specific tasks involving reading and processing the dataset line by line.' + 
+    ' Lab 3: Continues the practice with Python programming and building off lab 2, specifically focusing on data handling in Google Colab. The lab uses the Iris dataset to explore Pythons input-output capabilities without relying on advanced libraries like Pandas or NumPy.' + 
+    ' I was instructed to download a CSV file, inspect it in Excel, and calculate the minimum and maximum values for various iris measurements, as well as the counts of different flower species. The tasks involve running Python code to process the data, with special attention to correcting initial errors in statistics and using list comprehensions and arrays.' +
+    ' Lab 4: Focuses on loading and encoding the Iris dataset using Pandas and various data preprocessing techniques in Google Colab. The lab starts by importing the dataset from a CSV file and performing initial data inspection and randomization.' +  
+    ' I was guided through generating summary statistics, checking for missing values, and analyzing the data with correlation matrices and visualizations such as histograms, scatter plots, box plots, and bar plots. The lab also includes steps for normalizing numeric columns using MinMaxScaler, denormalizing data, one-hot encoding the categorical species column, and finally combining all processed data into a single DataFrame.' +
+    ' Lab 5: Focuses on building and training a neural network model for XOR classification using TensorFlow and Keras. The lab begins with uploading and reading an Excel file containing XOR data using Pandas. The data, which includes input features (X1, X2, X3) and output labels (Y1), is then processed into numpy arrays.' + 
+    ' A neural network model is constructed with one hidden layer and an experimental bias initializer, compiled with the Adam optimizer and binary cross-entropy loss. The model is trained over 2,000 epochs with periodic diagnostics provided by a custom callback. After training, the models predictions are evaluated against the input data, showing the models performance in predicting XOR outputs.' + 
+    ' The lab demonstrates the practical application of neural networks in solving simple logical problems and includes steps for data loading, model construction, training, and evaluation.' +
+    ' Lab 6: The task of this lab was to develop a model for classifying iris data. The notebook starts with importing the Pandas library and loading the iris dataset. Next, I needed to shuffle and normalize the data, and then to one-hot encode the species column.' +  
+    ' The data is split into training and testing sets, and a neural network model is built using TensorFlow Keras, featuring an input layer, a hidden layer with 8 nodes, and an output layer with 3 nodes. The model is compiled with categorical crossentropy loss and trained with a batch size of 8 over 3000 epochs. Predictions are made on the test set, and the accuracy is calculated. The output includes a comparison of actual versus predicted labels, with an accuracy of 96.7%.' +
+    ' Lab 7: Focuses on implementing k-nearest neighbor classification using the Iris dataset. k-NN is a simple, non-parametric algorithm used for classification and regression, where the output is determined by the majority vote of the k closest neighbors to a given data point. The lab requires modifying code to generate markdown outputs for different random states.' +
+    ' Starting with importing and normalizing the dataset, the lab progresses through one-hot encoding, splitting data, and training a k-nearest neighbor classifier. The task involves testing with various random states (42, 44, and a specific one derived from the students ID) and comparing prediction results with actual labels to compute accuracy.' +
+    ' Lab 8: Aims to explore the MNIST dataset, a renowned benchmark for computer vision and optical character recognition (OCR). The MNIST dataset consists of thousands of grayscale images of handwritten digits from 0 to 9, each paired with a label. It includes both training (60,000 images) and testing (10,000 images) sets.' + 
+    ' The lab involves determining the minimum canvas size required to contain each digit without unnecessary padding. I was tasked with creating a function to compute this minimum size, improving upon an initial, flawed version provided by ChatGPT. The lab also covers basics of color theory, focusing on RGB color encoding, and demonstrates how to render and manipulate MNIST images using Python libraries.' +  
+    ' It highlights a bug in the initial implementation and tasked me to debug and fix it to ensure accurate results in cropping images to their minimal bounding boxes.' +
+    ' Lab 9: Focuses on exploring Convolutional Neural Networks (CNNs) using the MNIST dataset. CNNs are a specialized type of neural network designed for handling grid-like data such as images.' +  
+    ' They consist of convolutional layers, which apply filters to detect features in images, activation functions like ReLU to introduce non-linearity, pooling layers to reduce dimensionality, and fully connected layers for classification.' + 
+    ' The lab covers the process of implementing a CNN, starting with data preparation, including loading, reshaping, and normalizing the MNIST dataset. I then built and trained a CNN model using Keras, involving the forward pass where data is processed through the network, loss calculation, and backpropagation, which adjusts the networks weights using gradients computed through the chain rule.' + 
+    ' Gradient descent is used to minimize the loss function by iteratively updating weights based on their gradients. The lab concludes with model evaluation on test data and required the modification of code to visualize and analyze predictions, especially focusing on incorrect ones. ' + 
+    ' Lab 10: Lab 10 is designed to explore convolutional neural networks (CNNs) using the Fashion MNIST dataset. The Fashion MNIST dataset is another benchmark for image classifications, now using clothing articles rather than handwritten digits. The lab starts with dataset preparation, where the Fashion MNIST data is loaded and preprocessed to be compatible with CNNs, and the images are reshaped and normalized to fit the models requirements.' + 
+    ' The core of the lab involves constructing a CNN model with Keras, featuring convolutional layers for feature extraction, max-pooling layers for dimensionality reduction, and fully connected layers for classification. The model is compiled with the Adam optimizer and trained using sparse categorical cross-entropy loss over five epochs. After training, the models performance is evaluated on a test set, and predictions are made.' +  
+    ' The final step requires modifications to visualize and analyze specific predictions, especially focusing on misclassifications.' 
+    },
+
+    {
     id: 8,
     title: 'Parallel Processing',
     description: 'Created programs to parse large text files and count each word frequency in parallel using C++ threads, OpenMP, MPI, and CUDA.',
@@ -156,7 +189,19 @@ const projects = [
     demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/ParallelProcessing',
     languages: ['C++', 'Python'],
-    longDescription: ''
+    longDescription: 'Project 1: C++ Threads Pattern Matching: This project begins with a serial implementation of the pattern matching algorithm in C++. The program reads the input text and pattern files into memory using standard file I/O operations.' + 
+    ' The core of the algorithm involves a nested loop: the outer loop iterates through each possible starting position in the input text, and the inner loop compares the subsequent characters with the pattern. A match is identified if all characters align or if the wildcard '*' is encountered, which can match any character.' +
+    ' The results, specifically the starting positions of each match, are then written to an output file. This project establishes the baseline performance metrics for subsequent parallel implementations.' +
+    ' Project 2: OpenMP Pattern Matching: In this project, the serial pattern matching algorithm is parallelized using OpenMP to take advantage of multi-core CPU architectures. The input and pattern files are read similarly to the serial version. The key difference lies in the parallelization of the outer loop using OpenMP pragmas.' + 
+    ' The #pragma omp parallel for directive is used to distribute the iterations of the outer loop across multiple threads, each processing a different segment of the input text. The threads work independently but share the result data structure, necessitating synchronization mechanisms to avoid race conditions. The aggregated results from all threads are then written to the output file.' +  
+    ' This implementation demonstrates how straightforward it can be to parallelize loops in C++ using OpenMP, resulting in significant reductions in execution time on multi-core systems.' + 
+    ' Project 3: MPI Pattern Matching: This project implements the pattern matching algorithm using the Message Passing Interface (MPI) to run on distributed memory systems, such as a cluster of computers. The input text is divided among multiple MPI processes, with each process handling a distinct portion of the text.' +
+    ' The MPI_Scatter function is used to distribute segments of the input text to each process. Each process then performs the pattern matching independently on its assigned segment. The results from all processes are gathered using the MPI_Gather function, where the master process collects and aggregates the results.' +  
+    ' Finally, the combined results are written to an output file. This implementation highlights the use of MPI for parallel computing across multiple machines, demonstrating significant performance gains for large-scale data processing.' + 
+    ' Project 4: CUDA Pattern Matching: In this project, the pattern matching algorithm is parallelized using CUDA to run on a GPU. The input text and pattern data are transferred to the GPUs global memory using CUDA memory transfer functions.' +
+    ' The pattern matching is then performed in parallel by thousands of CUDA threads. Each thread is responsible for checking a potential match starting at a specific position in the input text. The CUDA kernel is designed to efficiently utilize the GPUs architecture, with each thread performing a lightweight comparison and writing the results to a shared output array.' + 
+    ' After the kernel execution, the results are transferred back to the CPU for further processing and writing to the output file. This implementation showcases the massive parallel processing power of modern GPUs and the intricacies of GPU programming, such as memory management and kernel optimization, to achieve substantial speedups for computationally intensive tasks.' +
+    ' For each project, I wrote python files using psutil to monitor the CPU/GPU runtime and memory usage of each file, and for each different iteration of threads for comparison. '
   },
     
 ];
