@@ -111,16 +111,16 @@ main {
 
 .binary-gif {
   background: url('binary.gif');
-  background-size: cover; /* Ensure the background covers the entire area */
-  height: 100vh; /* Adjust the height as needed */
-  width: 100%; /* Full width */
+  background-size: cover; 
+  height: 100vh; 
+  width: 100%; 
   display: flex;
-  align-items: center; /* Center content vertically if needed */
-  justify-content: center; /* Center content horizontally if needed */
+  align-items: center; 
+  justify-content: center; 
 }
 
 .loading {
-  overflow: hidden; /* Prevent scrolling when loading */
+  overflow: hidden; 
 }
 
 .loading-overlay {
@@ -161,9 +161,10 @@ main {
 }
 
 .profile-section {
-  max-width: 800px;
+  max-width: 400px;
   margin: 20px;
   position: relative;
+  z-index: 6;
 }
 
 .profile-pic-container {
@@ -178,7 +179,7 @@ main {
   border: 5px solid #0f0;
   animation: pulse 2s infinite; /* Slight pulse effect for profile picture */
   transition: transform 0.3s ease;
-  border-radius: 0; 
+  border-radius: 0;
 }
 
 .profile-pic:hover {
@@ -188,6 +189,9 @@ main {
 
 .animated-text {
   animation: fadeIn 2s ease-out; /* Fade-in effect for text */
+  width: 800px;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -198,4 +202,51 @@ h1 {
 p {
   font-size: 1.2em;
   line-height: 1.5;
+}
+
+.numbers-overlay {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.numbers {
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap; 
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+.numbers span {
+  position: relative;
+  font-size: 3em;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05);
+  transition: color 0.3s, text-shadow 0.3s;
+  user-select: none;
+  text-align: center; 
+}
+
+.numbers span:hover {
+  transition: 0s;
+  color: #fff;
+  text-shadow: 0 0 10px #0f0,
+               0 0 20px #0f0,
+               0 0 40px #0f0,
+               0 0 80px #0f0,
+               0 0 160px #0f0;
+  z-index: 1000;
 }
