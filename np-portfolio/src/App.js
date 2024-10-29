@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useLocation} from 'react-router-dom';
 import NavBar from './Navbar.js';
 import Footer from './Footer.js';
 import Home from './Pages/Home.js';
@@ -11,6 +11,14 @@ import Contact from './Pages/Contact.js';
 function App() {
 
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  // Track page views on route changes
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-EM5HTXG5G7', { page_path: location.pathname });
+    }
+  }, [location]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
