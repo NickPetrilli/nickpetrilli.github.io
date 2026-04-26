@@ -3,26 +3,30 @@ import React, { useEffect } from 'react';
 const Home = () => {
 
   //Background numbers effect
-  useEffect(() => {
-    const numbers = document.querySelector('.numbers');
-    const numString = numbers.textContent;
-    const splitNum = numString.split("");
+useEffect(() => {
+  const numbersEl = document.querySelector('.numbers');
 
-    numbers.textContent = "";
-    for (let i = 0; i < splitNum.length; i++) {
-      numbers.innerHTML += "<span>" + splitNum[i] + "</span>";
-    }
-  }, []);
+  const fill = () => {
+    const charH = 48;
+    const charW = charH * 0.55;
+    const cols = Math.ceil(window.innerWidth / charW) + 4;
+    const rows = Math.ceil(window.innerHeight / charH) + 4;
+    numbersEl.innerHTML = Array.from(
+      { length: cols * rows },
+      () => `<span>${Math.floor(Math.random() * 10)}</span>`
+    ).join('');
+  };
+
+  fill();
+  window.addEventListener('resize', fill);
+  return () => window.removeEventListener('resize', fill);
+}, []);
 
   return (
     <>
       <div className="home-container">
         <div className="numbers-overlay">
-          <p className="numbers">
-            1583265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078
-            1583265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078
-            1583265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078115881265443896124301805912443078
-          </p>
+          <p className="numbers"></p>
         </div>
         <div className="profile-section">
           <div className="profile-pic-container">
