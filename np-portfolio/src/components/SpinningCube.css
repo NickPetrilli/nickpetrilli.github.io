@@ -1,0 +1,94 @@
+/* ── Spinning 3D Cube ── */
+.cube-scene {
+  width: 90px;
+  height: 90px;
+  perspective: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto 1.5rem;
+}
+
+.cube {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cube-spin 8s linear infinite;
+}
+
+/* ── Faces ── */
+.cube-face {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 2px solid;
+  backdrop-filter: blur(2px);
+  animation: face-breathe 3s ease-in-out infinite;
+}
+
+.cube-front,  .cube-back   { border-color: #00FF00; background: rgba(0,255,0,0.06); }
+.cube-right,  .cube-left   { border-color: #00FFFF; background: rgba(0,255,255,0.06); }
+.cube-top,    .cube-bottom  { border-color: rgba(0,255,0,0.5); background: rgba(0,255,0,0.04); }
+
+.cube-front  { transform: translateZ(45px); }
+.cube-back   { transform: rotateY(180deg) translateZ(45px); }
+.cube-right  { transform: rotateY(90deg)  translateZ(45px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(45px); }
+.cube-top    { transform: rotateX(90deg)  translateZ(45px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(45px); }
+
+/* Glowing core */
+.cube-core {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #00FF00;
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.9;
+  animation: core-pulse 2s ease-in-out infinite;
+}
+
+/* Floor shadow */
+.cube-shadow {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 12px;
+  background: rgba(0,255,0,0.15);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: shadow-breathe 3s ease-in-out infinite;
+}
+
+/* ── Keyframes ── */
+@keyframes cube-spin {
+  from { transform: rotateX(0deg)   rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes face-breathe {
+  0%, 100% { opacity: 0.8; }
+  50%       { opacity: 0.35; box-shadow: 0 0 18px currentColor; }
+}
+
+@keyframes core-pulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(0.8); opacity: 0.6; }
+  50%       { transform: translate(-50%,-50%) scale(1.3); opacity: 1; }
+}
+
+@keyframes shadow-breathe {
+  0%, 100% { transform: translateX(-50%) scale(1);   opacity: 0.3; }
+  50%       { transform: translateX(-50%) scale(1.4); opacity: 0.12; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube, .cube-face, .cube-core, .cube-shadow { animation: none; }
+}
