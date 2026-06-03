@@ -1,0 +1,47 @@
+/* ── Footer ── */
+.footer {
+  background-color: #000;
+  border-top: 1px solid rgba(0,255,0,0.2);
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1rem 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-prompt {
+  color: #00FF00;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.footer-copy {
+  color: rgba(0,255,0,0.35);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-icon-link {
+  color: rgba(0,255,0,0.35);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-icon-link:hover {
+  color: #00FF00;
+  text-shadow: 0 0 8px rgba(0,255,0,0.6);
+}
