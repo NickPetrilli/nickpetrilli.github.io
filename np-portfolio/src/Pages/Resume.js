@@ -1,16 +1,28 @@
 import React from 'react';
+import './Resume.css';
 
 const Resume = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 'calc(100vh - 60px)' }}>
-      <iframe
-        src="/documents/NP_Resume_2024.pdf"
-        width="100%"
-        style={{ flex: 1, border: 'none', minHeight: 'calc(100vh - 60px)' }}
-        title="Resume"
-      />
+    <div className="resume-page">
+      <div className="resume-header">
+        <a
+          href="/documents/NP_Resume_2024.pdf"
+          download
+          className="resume-download-btn"
+          aria-label="Download resume PDF"
+        >
+          [ DOWNLOAD ]
+        </a>
+      </div>
+      <div className="resume-frame-wrap">
+        <iframe
+          src="/documents/NP_Resume_2024.pdf"
+          title="Nicholas Petrilli Resume"
+          className="resume-iframe"
+        />
+      </div>
     </div>
-    );
-  };  
+  );
+};
 
 export default Resume;
