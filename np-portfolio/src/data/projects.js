@@ -1,0 +1,112 @@
+import React from 'react';
+import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa';
+import { BiLogoTypescript } from 'react-icons/bi';
+import { TbBrandReactNative } from 'react-icons/tb';
+import { DiNodejs } from 'react-icons/di';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven } from 'react-icons/si';
+import { FcLinux } from 'react-icons/fc';
+
+export const projects = [
+  {
+    id: 1, animKey: 'cpu',
+    title: 'SysMon+',
+    description: 'A Windows based system monitoring application that monitors CPU, Memory, and Disk usage.',
+    imageUrl: '/images/SysMon+_Logo.png',
+    demoUrl: 'https://www.youtube.com/watch?v=vXuHGeA7HYM',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/MSCS710-ProcessMonitor',
+    languages: ['Java', 'Java SpringBoot', 'React', 'NodeJS', 'HTML', 'CSS', 'SQLite'],
+    longDescription: 'SysMon+ is a Windows based system monitoring application that monitors CPU, Memory/RAM, and disks or other storage devices. It also tracks all processes currently running on the system. Total utilization of CPU, Memory, etc are tracked, as well as on a per process basis. The web application home page consists of glance views for CPU, Memory and Disk information. For this project, I specifically worked on the backend portion.',
+  },
+  {
+    id: 2, animKey: 'globe',
+    title: 'FoxLift',
+    description: 'A mobile ride sharing application for students using Google Authentication and the Google Maps API.',
+    imageUrl: '/images/FoxLift.png',
+    demoUrl: '/videos/FoxLiftDemos.mp4',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
+    languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
+    longDescription: 'FoxLift is a mobile ride sharing application for students to carpool to shared destinations. Users begin by creating an account via Google Authentication. The Home page uses the Google Maps API to select origin and destination, showing the route, distance, and trip duration. I worked on the frontend portion, incorporating the Google Maps API and features in the Activity and Messaging pages.',
+  },
+  {
+    id: 3, animKey: 'memory',
+    title: 'NickOS',
+    description: 'A browser based operating system built in TypeScript.',
+    imageUrl: '/images/OS.png',
+    demoUrl: '/NickOS/index.html',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
+    languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    longDescription: 'NickOS is a browser-based Operating System in TypeScript spanning four phases: shell/CLI improvements, memory management and process control (loading 6502 machine code, PCBs), concurrent execution with Round Robin scheduling, and finally a local file system with virtual memory management.',
+  },
+  {
+    id: 4, animKey: 'cards',
+    title: 'Charlie',
+    description: 'A client-server Java Blackjack application with basic strategy advisor and Hi-Lo card counting.',
+    imageUrl: '/images/charlie.png',
+    demoUrl: '/videos/Charlie-demo.webm',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/Charlie',
+    languages: ['Java', 'Maven'],
+    longDescription: 'Charlie is a client-server Blackjack application in Java. I added side bets (Super 7, Exactly 13, Royal Match), a basic strategy advisor that analyzes the player hand and dealer up card, and the Hi-Lo card counting system with running and true count to calculate optimal bets.',
+  },
+  {
+    id: 5, animKey: 'circuit',
+    title: 'tsiraM-6502',
+    description: 'A virtual 6502 microprocessor simulation in TypeScript.',
+    imageUrl: '/images/tsiraM.jpeg',
+    demoUrl: '',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/tsiraM-6502',
+    languages: ['TypeScript'],
+    longDescription: 'tsiraM-6502 simulates a 6502 microprocessor system, including CPU fetch-decode-execute cycles, memory management via MMU, interrupt controller, and keyboard input. The CPU processes the full 6502 instruction set across multiple pipeline steps.',
+  },
+  {
+    id: 6, animKey: 'clusters',
+    title: 'Covid-19 Pooled Testing Simulator',
+    description: 'Pooled testing simulator based on the system used at Marist College to test students for Covid.',
+    imageUrl: '/images/covid.jpg',
+    demoUrl: '',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
+    languages: ['Java'],
+    longDescription: 'A Java simulation of pooled COVID-19 testing. Groups of 8 are tested collectively; positive groups split into two groups of 4, and if both positive, each member is tested individually. At 2% infection rate: 1,000 people → ~255 tests — roughly 1 test per 4 people.',
+  },
+  {
+    id: 7, animKey: 'neural',
+    title: 'AI Labs',
+    description: 'Convolutional neural networks with backpropagation for the Iris, MNIST, and Fashion MNIST datasets.',
+    imageUrl: '/images/neural-network.jpg',
+    demoUrl: '',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/AI',
+    languages: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'NumPy'],
+    longDescription: 'Ten labs exploring ML fundamentals: data preprocessing, k-NN classification, XOR neural networks with Keras, CNNs on MNIST (60K images, 98%+ accuracy), and Fashion MNIST clothing classification — covering backpropagation, gradient descent, and model evaluation.',
+  },
+  {
+    id: 8, animKey: 'streams',
+    title: 'Parallel Processing',
+    description: 'Pattern matching in C++ using threads, OpenMP, MPI, and CUDA on large text files.',
+    imageUrl: '/images/microchip.jpg',
+    demoUrl: '',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/ParallelProcessing',
+    languages: ['C++', 'Python'],
+    longDescription: 'Four parallel implementations: serial C++ baseline, OpenMP multi-core parallelization, MPI for distributed memory clusters, and CUDA GPU implementation with thousands of parallel threads. Python scripts monitor CPU/GPU runtime and memory usage per approach.',
+  },
+];
+
+export const languageIcons = {
+  'JavaScript':      <FaJs style={{ color: '#F7DF1E' }} />,
+  'TypeScript':      <BiLogoTypescript style={{ color: '#3178C6' }} />,
+  'React':           <FaReact style={{ color: '#61DAFB' }} />,
+  'React Native':    <TbBrandReactNative style={{ color: '#61DAFB' }} />,
+  'Python':          <FaPython style={{ color: '#4B8BBE' }} />,
+  'TensorFlow':      <SiTensorflow style={{ color: '#FF8C00' }} />,
+  'Keras':           <SiKeras style={{ color: '#D00000' }} />,
+  'Pandas':          <SiPandas style={{ color: '#4B8BBE' }} />,
+  'NumPy':           <SiNumpy style={{ color: '#7B68EE' }} />,
+  'Java':            <FaJava style={{ color: '#E76F00' }} />,
+  'Java SpringBoot': <SiSpringboot style={{ color: '#6DB33F' }} />,
+  'Maven':           <SiApachemaven style={{ color: '#C71A36' }} />,
+  'HTML':            <FaHtml5 style={{ color: '#E34F26' }} />,
+  'CSS':             <FaCss3 style={{ color: '#1572B6' }} />,
+  'NodeJS':          <DiNodejs style={{ color: '#6DB33F' }} />,
+  'MySQL':           <SiMysql style={{ color: '#00618A' }} />,
+  'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
+  'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
+  'Linux':           <FcLinux />,
+};
