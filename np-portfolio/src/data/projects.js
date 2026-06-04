@@ -11,7 +11,7 @@ export const projects = [
     id: 1, animKey: 'cpu',
     title: 'SysMon+',
     description: 'A Windows based system monitoring application that monitors CPU, Memory, and Disk usage.',
-    imageUrl: '/images/SysMon+_Logo.png',
+    imageUrl: '/images/SysMon+_Logo_Inverted.png',
     demoUrl: 'https://www.youtube.com/watch?v=vXuHGeA7HYM',
     sourceCodeUrl: 'https://github.com/NickPetrilli/MSCS710-ProcessMonitor',
     languages: ['Java', 'Java SpringBoot', 'React', 'NodeJS', 'HTML', 'CSS', 'SQLite'],
