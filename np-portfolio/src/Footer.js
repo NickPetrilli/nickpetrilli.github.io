@@ -13,7 +13,7 @@ const Footer = () => {
             href="https://github.com/NickPetrilli"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer-icon-link"
+            className="footer-icon-link social--github"
             aria-label="GitHub"
           >
             <FaGithub />
@@ -22,14 +22,14 @@ const Footer = () => {
             href="https://www.linkedin.com/in/nicholas-petrilli-26aaa4225/"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer-icon-link"
+            className="footer-icon-link social--linkedin"
             aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:njpetrilli@verizon.net"
-            className="footer-icon-link"
+            className="footer-icon-link social--email"
             aria-label="Email"
           >
             <FaEnvelope />

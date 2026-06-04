@@ -10,9 +10,9 @@ const NAV_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { href: 'https://github.com/NickPetrilli',                          icon: <FaGithub />,   label: 'GitHub'   },
-  { href: 'https://www.linkedin.com/in/nicholas-petrilli-26aaa4225/', icon: <FaLinkedin />, label: 'LinkedIn' },
-  { href: 'mailto:njpetrilli@verizon.net',                            icon: <FaEnvelope />, label: 'Email'    },
+  { href: 'https://github.com/NickPetrilli',                          icon: <FaGithub />,   label: 'GitHub',   cls: 'social--github'   },
+  { href: 'https://www.linkedin.com/in/nicholas-petrilli-26aaa4225/', icon: <FaLinkedin />, label: 'LinkedIn', cls: 'social--linkedin' },
+  { href: 'mailto:njpetrilli@verizon.net',                            icon: <FaEnvelope />, label: 'Email',    cls: 'social--email'    },
 ];
 
 const NavBar = () => {
@@ -41,11 +41,11 @@ const NavBar = () => {
       </ul>
 
       <div className="nav-social">
-        {SOCIAL_LINKS.map(({ href, icon, label }) => (
+        {SOCIAL_LINKS.map(({ href, icon, label, cls }) => (
           <a
             key={label}
             href={href}
-            className="nav-social-link"
+            className={`nav-social-link ${cls}`}
             aria-label={label}
             target={href.startsWith('mailto') ? undefined : '_blank'}
             rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
