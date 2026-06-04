@@ -1,0 +1,302 @@
+/* ═══════════════════════════════════════════
+   Warp Tunnel — between-project transition
+   Palette: #000 · #00FF00 · #00FFFF
+═══════════════════════════════════════════ */
+
+.warp-tunnel {
+  height: 80vh;
+  min-height: 480px;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(0, 255, 0, 0.05);
+}
+
+/* Radial vignette so edges stay dark and center is clear */
+.warp-tunnel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 52% 52% at 50% 50%,
+    transparent 12%,
+    rgba(0, 0, 0, 0.45) 58%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Shared variant wrapper ── */
+.tvar {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Center glow ── */
+.warp-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.55; }
+  50%       { transform: scale(1.6); opacity: 1; }
+}
+
+/* ── Destination animation (scroll-driven) ── */
+.warp-anim {
+  position: relative;
+  z-index: 10;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* ── Label ── */
+.warp-label {
+  position: absolute;
+  bottom: 2rem;
+  z-index: 10;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  color: rgba(0, 255, 0, 0.5);
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  will-change: opacity;
+}
+.wl-prefix { color: rgba(0, 255, 0, 0.28); }
+.wl-title  { color: #00FF00; text-shadow: 0 0 8px rgba(0, 255, 0, 0.5); }
+.wl-cursor { animation: blink-cur 1s step-end infinite; }
+@keyframes blink-cur { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ════════════════════════════════════════════
+   VARIANT: bars  → SysMon+ (CPU perf bars)
+════════════════════════════════════════════ */
+.tvar-bars {
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.tvar-bar {
+  position: absolute;
+  bottom: 0;
+  width: 3.5%;
+  background: linear-gradient(to top,
+    rgba(0, 255, 0, 0.65),
+    rgba(0, 255, 0, 0.25) 70%,
+    transparent
+  );
+  box-shadow: 0 0 6px rgba(0, 255, 0, 0.2);
+  animation: bar-pulse ease-in-out infinite alternate;
+}
+@keyframes bar-pulse {
+  0%   { height: 8%; }
+  100% { height: 85%; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: grid  → FoxLift (GPS / map grid)
+════════════════════════════════════════════ */
+.tvar-grid { overflow: hidden; }
+
+.tvar-grid-floor,
+.tvar-grid-ceil {
+  position: absolute;
+  left: -150%; right: -150%;
+  height: 55%;
+  background-image:
+    linear-gradient(rgba(0, 255, 0, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.22) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+.tvar-grid-floor {
+  bottom: 0;
+  transform: perspective(420px) rotateX(72deg);
+  transform-origin: bottom center;
+  animation: grid-scroll 1.6s linear infinite;
+}
+.tvar-grid-ceil {
+  top: 0;
+  transform: perspective(420px) rotateX(-72deg);
+  transform-origin: top center;
+  animation: grid-scroll 1.6s linear infinite;
+}
+@keyframes grid-scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 70px; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: rain  → NickOS (kernel hex dump)
+════════════════════════════════════════════ */
+.tvar-rain { overflow: hidden; }
+
+.tvar-rain-col {
+  position: absolute;
+  top: -110%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: rgba(0, 255, 0, 0.45);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.25);
+  animation: rain-fall linear infinite;
+}
+.tvar-rain-col span:first-child {
+  color: #00FF00;
+  text-shadow: 0 0 14px #00FF00, 0 0 28px rgba(0, 255, 0, 0.4);
+}
+@keyframes rain-fall {
+  0%   { top: -110%; }
+  100% { top:  110%; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: scanlines  → Charlie (retro terminal)
+════════════════════════════════════════════ */
+.tvar-scanlines { overflow: hidden; }
+
+.tvar-scanline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 3%,
+    rgba(0, 255, 0, 0.18) 18%,
+    rgba(0, 255, 0, 0.08) 82%,
+    transparent 97%
+  );
+  animation: scanline-fall 3.2s linear infinite;
+}
+@keyframes scanline-fall {
+  0%   { top: -4px; opacity: 0; }
+  6%   { opacity: 1; }
+  93%  { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: rings  → tsiraM-6502 (circuit rings)
+════════════════════════════════════════════ */
+.tvar-rings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tvar-ring {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 0, 0.65);
+  box-shadow: 0 0 14px rgba(0, 255, 0, 0.2), inset 0 0 14px rgba(0, 255, 0, 0.07);
+  animation: ring-warp 2.8s linear infinite;
+}
+@keyframes ring-warp {
+  0%   { transform: scale(0.04); opacity: 0; }
+  8%   { opacity: 0.9; }
+  65%  { opacity: 0.4; }
+  100% { transform: scale(6.5); opacity: 0; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: scatter  → Covid-19 (particles spreading)
+════════════════════════════════════════════ */
+.tvar-scatter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tvar-scatter-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.75);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.45);
+  animation: scatter-fly 2s ease-out infinite;
+}
+@keyframes scatter-fly {
+  0%   { transform: rotate(var(--angle)) translateX(0);     opacity: 0.95; }
+  75%  { opacity: 0.4; }
+  100% { transform: rotate(var(--angle)) translateX(420px); opacity: 0; }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: wave  → AI Labs (neural pulses)
+════════════════════════════════════════════ */
+.tvar-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tvar-wave-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 0, 0.6);
+  animation: wave-pulse 3.6s ease-out infinite;
+}
+@keyframes wave-pulse {
+  0%   {
+    width: 20px; height: 20px; opacity: 1;
+    box-shadow: 0 0 24px rgba(0,255,0,0.6), 0 0 48px rgba(0,255,0,0.25);
+  }
+  100% {
+    width: 800px; height: 800px; opacity: 0;
+    box-shadow: none;
+  }
+}
+
+/* ════════════════════════════════════════════
+   VARIANT: streams  → Parallel Processing
+════════════════════════════════════════════ */
+.tvar-streams { overflow: hidden; }
+
+.tvar-stream {
+  position: absolute;
+  left: -100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 0, 0.7),
+    rgba(0, 255, 255, 0.35),
+    transparent
+  );
+  animation: stream-flow linear infinite;
+}
+@keyframes stream-flow {
+  0%   { left: -100%; }
+  100% { left: 160%; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .tvar-scanline, .tvar-ring, .tvar-scatter-dot,
+  .tvar-wave-ring, .tvar-stream, .tvar-rain-col,
+  .tvar-grid-floor, .tvar-grid-ceil,
+  .warp-glow, .wl-cursor {
+    animation: none !important;
+    opacity: 0.25 !important;
+  }
+  .warp-anim  { opacity: 1 !important; transform: scale(1) !important; }
+  .warp-label { opacity: 1 !important; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .warp-tunnel { height: 55vh; min-height: 320px; }
+}
