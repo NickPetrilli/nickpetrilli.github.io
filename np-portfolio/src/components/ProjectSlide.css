@@ -12,8 +12,6 @@
   gap: 4rem;
   padding: 5rem 5rem 5rem 5.5rem; /* extra left for progress bar */
   background: #000;
-  scroll-snap-align: start;
-  scroll-margin-top: 56px;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0,255,0,0.07);
