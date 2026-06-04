@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { projects } from '../data/projects';
-import ParticleWave from '../components/ParticleWave';
+import HeroScene    from '../components/HeroScene';
 import ProjectSlide from '../components/ProjectSlide';
+import WarpTunnel   from '../components/WarpTunnel';
 import CpuRings       from '../components/animations/CpuRings';
 import WireframeGlobe from '../components/animations/WireframeGlobe';
 import MemoryBlocks   from '../components/animations/MemoryBlocks';
@@ -25,6 +26,17 @@ const ANIM_MAP = {
   streams:  ParallelStreams,
 };
 
+const TUNNEL_VARIANT = {
+  cpu:      'bars',
+  globe:    'grid',
+  memory:   'rain',
+  cards:    'scanlines',
+  circuit:  'rings',
+  clusters: 'scatter',
+  neural:   'wave',
+  streams:  'streams',
+};
+
 function useInView(ref) {
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -43,27 +55,9 @@ function useInView(ref) {
 const Home = () => {
   const [scrollPct,  setScrollPct]  = useState(0);
   const [heroOffset, setHeroOffset] = useState(0);
-  const numbersRef = useRef(null);
-  const dividerRef = useRef(null);
+  const dividerRef    = useRef(null);
   const dividerInView = useInView(dividerRef);
 
-  /* Background numbers */
-  useEffect(() => {
-    const el = numbersRef.current;
-    if (!el) return;
-    const fill = () => {
-      const charH = 48, charW = charH * 0.55;
-      const cols = Math.ceil(window.innerWidth  / charW) + 4;
-      const rows = Math.ceil(window.innerHeight / charH) + 4;
-      el.innerHTML = Array.from({ length: cols * rows },
-        () => `<span>${Math.floor(Math.random() * 10)}</span>`).join('');
-    };
-    fill();
-    window.addEventListener('resize', fill);
-    return () => window.removeEventListener('resize', fill);
-  }, []);
-
-  /* Scroll: progress bar + hero parallax */
   const onScroll = useCallback(() => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     setScrollPct((window.scrollY / max) * 100);
@@ -77,40 +71,39 @@ const Home = () => {
 
   return (
     <>
-      {/* Fixed green scroll progress bar */}
+      {/* Fixed scroll progress bar */}
       <div className="scroll-progress-bar" style={{ height: `${scrollPct}%` }} aria-hidden="true" />
 
       {/* ══════════ HERO ══════════ */}
       <section id="hero" className="home-container">
-        <ParticleWave />
+        <HeroScene />
         <div className="scanlines" aria-hidden="true" />
-        <div className="numbers-overlay" aria-hidden="true">
-          <p className="numbers" ref={numbersRef} />
-        </div>
 
         <div className="hero-content" style={{ transform: `translateY(${heroOffset}px)` }}>
-          <div className="profile-pic-container">
+          {/* Profile pic fades in as particle name dissolves */}
+          <div className="profile-pic-container" style={{ animationDelay: '2.5s' }}>
             <img src="/images/Graduation Pic.png" alt="Nick Petrilli" className="profile-pic" />
           </div>
 
+          {/* Name chars stagger in at 2.8s, cross-fading with particle name */}
           <h1 className="glitch-name" data-text={NAME} aria-label={NAME}>
             {NAME.split('').map((char, i) => (
-              <span key={i} className="char-reveal" style={{ animationDelay: `${0.05 * i}s` }}>
+              <span key={i} className="char-reveal" style={{ animationDelay: `${2.8 + 0.05 * i}s` }}>
                 {char === ' ' ? ' ' : char}
               </span>
             ))}
           </h1>
 
-          <h2 className="hero-role">
+          <h2 className="hero-role" style={{ animationDelay: '3.5s' }}>
             Software Developer<span className="cursor" aria-hidden="true">_</span>
           </h2>
 
-          <p className="hero-bio">
+          <p className="hero-bio" style={{ animationDelay: '3.9s' }}>
             MS &amp; BS Computer Science · Marist College · Building innovative web applications
             and tackling challenging problems. Scroll to explore my work.
           </p>
 
-          <div className="scroll-cue" aria-hidden="true">
+          <div className="scroll-cue" aria-hidden="true" style={{ animationDelay: '4.3s' }}>
             <span className="scroll-cue-text">scroll</span>
             <div className="scroll-cue-arrow" />
           </div>
@@ -124,14 +117,28 @@ const Home = () => {
         <span className="divider-line divider-line-right" />
       </div>
 
-      {/* ══════════ PROJECT SLIDES ══════════ */}
+      {/* ══════════ PROJECT SLIDES + WARP TUNNELS ══════════ */}
+      <WarpTunnel
+        AnimComponent={ANIM_MAP[projects[0].animKey]}
+        nextTitle={projects[0].title}
+        variant={TUNNEL_VARIANT[projects[0].animKey]}
+      />
+
       {projects.map((project, idx) => (
-        <ProjectSlide
-          key={project.id}
-          project={project}
-          index={idx}
-          AnimComponent={ANIM_MAP[project.animKey]}
-        />
+        <React.Fragment key={project.id}>
+          <ProjectSlide
+            project={project}
+            index={idx}
+            AnimComponent={ANIM_MAP[project.animKey]}
+          />
+          {idx < projects.length - 1 && (
+            <WarpTunnel
+              AnimComponent={ANIM_MAP[projects[idx + 1].animKey]}
+              nextTitle={projects[idx + 1].title}
+              variant={TUNNEL_VARIANT[projects[idx + 1].animKey]}
+            />
+          )}
+        </React.Fragment>
       ))}
     </>
   );
