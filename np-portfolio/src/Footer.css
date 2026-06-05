@@ -1,0 +1,66 @@
+/* ── Footer ── */
+.footer {
+  background-color: #000;
+  border-top: 1px solid rgba(0,255,0,0.2);
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1rem 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-prompt {
+  color: #00FF00;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.footer-copy {
+  color: rgba(0,255,0,0.35);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-icon-link {
+  color: rgba(0,255,0,0.35);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-icon-link:hover {
+  color: #00FF00;
+  text-shadow: 0 0 8px rgba(0,255,0,0.6);
+}
+
+/* ── Per-icon social colors ── */
+.footer-icon-link.social--github  { color: rgba(255, 255, 255, 0.72); }
+.footer-icon-link.social--github:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+}
+
+.footer-icon-link.social--linkedin  { color: #0A66C2; }
+.footer-icon-link.social--linkedin:hover {
+  color: #1e80e0;
+  text-shadow: 0 0 8px rgba(10, 102, 194, 0.6);
+}
+
+.footer-icon-link.social--email  { color: #5BA8D4; }
+.footer-icon-link.social--email:hover {
+  color: #88CFFF;
+  text-shadow: 0 0 8px rgba(91, 168, 212, 0.55);
+}
