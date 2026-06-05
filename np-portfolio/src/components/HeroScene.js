@@ -126,8 +126,8 @@ const HeroScene = () => {
         aSizes[i]   = 2.8;
         aBrights[i] = 1.0;
       } else {
-        networkPos[b]   = (Math.random()-0.5) * 28;
-        networkPos[b+1] = (Math.random()-0.5) * 16;
+        networkPos[b]   = (Math.random()-0.5) * 44;
+        networkPos[b+1] = (Math.random()-0.5) * 28;
         networkPos[b+2] = (Math.random()-0.5) * 16;
         aSizes[i]   = 0.7 + Math.random() * 1.0;
         aBrights[i] = 0.12 + Math.random() * 0.28;
@@ -291,8 +291,8 @@ const HeroScene = () => {
       }
 
       /* Camera parallax */
-      camera.position.x += (mx * 2.0 - camera.position.x) * 0.035;
-      camera.position.y += (-my * 1.2 - camera.position.y) * 0.035;
+      camera.position.x += (mx * 3.0 - camera.position.x) * 0.07;
+      camera.position.y += (-my * 2.0 - camera.position.y) * 0.07;
       camera.position.z = 16;
       camera.lookAt(0, 0, 0);
 
