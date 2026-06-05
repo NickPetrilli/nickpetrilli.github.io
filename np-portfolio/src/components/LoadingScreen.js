@@ -21,50 +21,92 @@ const LoadingScreen = () => {
   const [exiting,  setExiting]  = useState(false);
   const [progress, setProgress] = useState(0);
 
-  /* ── Matrix rain ── */
+  /* ── Digital rain ── */
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx      = canvas.getContext('2d');
-    const fontSize = 14;
+    const ctx = canvas.getContext('2d');
+
+    const CHARS = '01';
+
+    const dpr = window.devicePixelRatio || 1;
+    const cssW = () => window.innerWidth;
+    const cssH = () => window.innerHeight;
 
     const resize = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width  = cssW() * dpr;
+      canvas.height = cssH() * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
 
-    let columns = Math.floor(canvas.width / fontSize);
-    let drops   = Array.from({ length: columns }, () => Math.floor(Math.random() * -50));
+    const buildColumns = () => {
+      const cols = [];
+      let x = 0;
+      while (x < cssW()) {
+        const size  = 11 + Math.floor(Math.random() * 7);
+        const speed = 0.4 + Math.random() * 0.9;
+        const alpha = 0.25 + Math.random() * 0.55;
+        cols.push({
+          x,
+          y:     Math.random() * -cssH(),
+          size,
+          speed,
+          alpha,
+          gap:   size * 1.1,
+        });
+        x += size * 1.35;
+      }
+      return cols;
+    };
+
+    let columns  = buildColumns();
     let lastTime = 0, animId;
 
     const draw = (ts) => {
       animId = requestAnimationFrame(draw);
-      if (ts - lastTime < 50) return; // ~20fps
+      if (ts - lastTime < 16) return;
       lastTime = ts;
-      ctx.fillStyle = 'rgba(0,0,0,0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < drops.length; i++) {
-        const y = drops[i] * fontSize;
-        if (y < 0) { drops[i]++; continue; }
-        ctx.fillStyle = '#ffffff';
-        ctx.font = `bold ${fontSize}px 'Courier New', monospace`;
-        ctx.fillText(Math.random() > 0.5 ? '1' : '0', i * fontSize, y);
-        if (drops[i] > 1) {
-          ctx.fillStyle = '#00ff41';
-          ctx.font = `${fontSize}px 'Courier New', monospace`;
-          ctx.fillText(Math.random() > 0.5 ? '1' : '0', i * fontSize, (drops[i] - 1) * fontSize);
+
+      // Soft fade trail
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(0, 0, cssW(), cssH());
+
+      for (const col of columns) {
+        col.y += col.speed;
+        if (col.y > cssH() + col.size * 2) {
+          col.y = -col.size * (5 + Math.random() * 20);
         }
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = Math.floor(Math.random() * -20);
-        drops[i]++;
+
+        const steps = Math.ceil(cssH() / col.gap) + 2;
+        for (let s = 0; s < steps; s++) {
+          const cy = col.y + s * col.gap;
+          if (cy < -col.size || cy > cssH() + col.size) continue;
+
+          const isHead  = s === 0;
+          const ageFade = Math.max(0, 1 - s / 18);
+          const char    = CHARS[Math.random() > 0.5 ? 1 : 0];
+
+          ctx.shadowBlur = 0;
+          ctx.font       = `${col.size}px "Courier New", monospace`;
+
+          if (isHead) {
+            ctx.fillStyle = `rgba(180,255,190,${col.alpha})`;
+          } else {
+            ctx.fillStyle = `rgba(0,255,0,${col.alpha * ageFade * 0.85})`;
+          }
+
+          ctx.fillText(char, col.x, cy);
+        }
       }
     };
+
     animId = requestAnimationFrame(draw);
 
     const onResize = () => {
       resize();
-      columns = Math.floor(canvas.width / fontSize);
-      drops   = Array.from({ length: columns }, () => Math.floor(Math.random() * -50));
+      columns = buildColumns();
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     window.addEventListener('resize', onResize);
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', onResize); };
