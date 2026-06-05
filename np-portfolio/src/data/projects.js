@@ -32,7 +32,7 @@ export const projects = [
     title: 'NickOS',
     description: 'A browser based operating system built in TypeScript.',
     imageUrl: '/images/OS.png',
-    demoUrl: '/NickOS/index.html',
+    demoUrl: 'https://nickos-dev.vercel.app/',
     sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
     languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
     longDescription: 'NickOS is a browser-based Operating System in TypeScript spanning four phases: shell/CLI improvements, memory management and process control (loading 6502 machine code, PCBs), concurrent execution with Round Robin scheduling, and finally a local file system with virtual memory management.',
