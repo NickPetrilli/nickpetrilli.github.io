@@ -11,6 +11,7 @@ import CircuitBoard   from '../components/animations/CircuitBoard';
 import DotClusters    from '../components/animations/DotClusters';
 import NeuralNetwork  from '../components/animations/NeuralNetwork';
 import ParallelStreams from '../components/animations/ParallelStreams';
+import ChessBoard     from '../components/animations/ChessBoard';
 import './Home.css';
 
 const NAME = 'Nick Petrilli';
@@ -24,6 +25,7 @@ const ANIM_MAP = {
   clusters: DotClusters,
   neural:   NeuralNetwork,
   streams:  ParallelStreams,
+  chess:    ChessBoard,
 };
 
 const TUNNEL_VARIANT = {
@@ -35,6 +37,7 @@ const TUNNEL_VARIANT = {
   clusters: 'scatter',
   neural:   'wave',
   streams:  'streams',
+  chess:    'grid',
 };
 
 function useInView(ref) {

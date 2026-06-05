@@ -428,6 +428,46 @@
 .streams-wrap.anim-active svg { opacity: 1; }
 
 /* ════════════════════════════════════
+   CHESS BOARD (Checked Out)
+════════════════════════════════════ */
+.chess-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chess-sq-flash {
+  opacity: 0;
+}
+.anim-active .chess-sq-flash {
+  animation: chess-sq-flash 2s ease-in-out infinite;
+}
+@keyframes chess-sq-flash {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+.chess-move-arrow {
+  opacity: 0;
+}
+.anim-active .chess-move-arrow {
+  animation: chess-arrow-pulse 2s ease-in-out 0.4s infinite;
+}
+@keyframes chess-arrow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.95; }
+}
+
+.chess-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  color: rgba(0,255,0,0.4);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════ */
 @media (max-width: 900px) {

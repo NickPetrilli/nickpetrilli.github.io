@@ -3,7 +3,7 @@ import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
-import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven } from 'react-icons/si';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 
 export const projects = [
@@ -87,6 +87,16 @@ export const projects = [
     languages: ['C++', 'Python'],
     longDescription: 'Four parallel implementations: serial C++ baseline, OpenMP multi-core parallelization, MPI for distributed memory clusters, and CUDA GPU implementation with thousands of parallel threads. Python scripts monitor CPU/GPU runtime and memory usage per approach.',
   },
+  {
+    id: 9, animKey: 'chess',
+    title: 'Checked Out',
+    description: 'A free Chess.com game analyzer powered by Stockfish 18 Lite — replay games with engine evaluation, accuracy scoring, move heatmaps, and a live-analysis playground.',
+    imageUrl: '/images/checkedout.png',
+    demoUrl: 'https://checked-out.vercel.app/',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/checked-out',
+    languages: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Chess.com API'],
+    longDescription: 'Checked Out is a free alternative to Chess.com\'s premium analysis tools. Load any public Chess.com user\'s game history and replay games move-by-move with full Stockfish 18 Lite engine evaluation — running entirely in the browser as a WebAssembly Web Worker with no server required. The Analyzer flags blunders, mistakes, and inaccuracies by centipawn loss, shows Lichess-formula accuracy rings per player, best-move arrows, engine continuation lines, and an AI coach that explains why a move was bad. A Move Heatmap visualizes square activity across all loaded games (filterable by piece, color, and result), and a Playground offers free-play with live MultiPV analysis (top 5 lines, depth 18), hint arrows, and opening detection across ~50 openings. Built with React 19, TypeScript, Vite, and Tailwind CSS, using the unauthenticated Chess.com public API.',
+  },
 ];
 
 export const languageIcons = {
@@ -109,4 +119,7 @@ export const languageIcons = {
   'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
+  'Tailwind CSS':    <SiTailwindcss style={{ color: '#38BDF8' }} />,
+  'Vite':            <SiVite style={{ color: '#646CFF' }} />,
+  'Chess.com API':   <SiChessdotcom style={{ color: '#81B64C' }} />,
 };
