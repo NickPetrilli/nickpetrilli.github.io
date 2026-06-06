@@ -54,13 +54,14 @@
   text-transform: uppercase;
   padding: 0.4rem 0.85rem;
   border: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
   color: #00FF00;
   border-color: rgba(0, 255, 0, 0.3);
   text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  transform: scale(1.1);
 }
 
 .nav-link--active {
@@ -92,6 +93,14 @@
   border: 1px solid transparent;
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* Scale the icon SVG independently so the tooltip position stays stable */
+.nav-social-link svg {
+  transition: transform 0.2s ease;
+}
+.nav-social-link:hover svg {
+  transform: scale(1.2);
 }
 
 .nav-social-link:hover {
