@@ -67,7 +67,7 @@ export const projects = [
     demoUrl: 'https://poolsight-dev.vercel.app/',
     demoLabel: 'APP',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
-    languages: ['Java', '|', 'TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Three.js', 'Zustand', 'Framer Motion', 'Recharts'],
+    languages: ['Java', '|', 'TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Three.js', 'Zustand', 'Framer Motion'],
     longDescription: 'A Java simulation of pooled COVID-19 testing. Groups of 8 are tested collectively; positive groups split into two groups of 4, and if both positive, each member is tested individually. At 2% infection rate: 1,000 people → ~255 tests — roughly 1 test per 4 people.',
   },
   {
