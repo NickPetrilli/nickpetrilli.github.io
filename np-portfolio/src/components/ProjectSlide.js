@@ -48,7 +48,7 @@ const ProjectSlide = ({ project, index, AnimComponent }) => {
 
         <div className="slide-langs">
           {project.languages.map((lang) => (
-            <span key={lang} title={lang} className="slide-lang">
+            <span key={lang} data-tooltip={lang} className="slide-lang">
               {languageIcons[lang]}
             </span>
           ))}

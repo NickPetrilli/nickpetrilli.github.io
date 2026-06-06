@@ -46,7 +46,7 @@ const Projects = () => {
               </div>
               <div className="modal-icons">
                 {selectedProject.languages.map((lang) => (
-                  <span key={lang} title={lang} className="card-icon">
+                  <span key={lang} data-tooltip={lang} className="card-icon">
                     {languageIcons[lang]}
                   </span>
                 ))}
