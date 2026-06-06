@@ -40,18 +40,20 @@ const ProjectSlide = ({ project, index, AnimComponent }) => {
         <div className="slide-links">
           {project.demoUrl?.trim() && (
             <a href={project.demoUrl} className="slide-btn"
-              target="_blank" rel="noopener noreferrer">[ DEMO ]</a>
+              target="_blank" rel="noopener noreferrer">[ {project.demoLabel || 'DEMO'} ]</a>
           )}
           <a href={project.sourceCodeUrl} className="slide-btn"
             target="_blank" rel="noopener noreferrer">[ CODE ]</a>
         </div>
 
         <div className="slide-langs">
-          {project.languages.map((lang) => (
-            <span key={lang} title={lang} className="slide-lang">
-              {languageIcons[lang]}
-            </span>
-          ))}
+          {project.languages.map((lang, i) =>
+            lang === '|'
+              ? <span key={`sep-${i}`} className="lang-separator" aria-hidden="true" />
+              : <span key={lang} data-tooltip={lang} className="slide-lang">
+                  {languageIcons[lang]}
+                </span>
+          )}
         </div>
       </div>
 

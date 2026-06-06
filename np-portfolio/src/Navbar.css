@@ -54,13 +54,14 @@
   text-transform: uppercase;
   padding: 0.4rem 0.85rem;
   border: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
   color: #00FF00;
   border-color: rgba(0, 255, 0, 0.3);
   text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  transform: scale(1.1);
 }
 
 .nav-link--active {
@@ -94,6 +95,14 @@
   transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
 }
 
+/* Scale the icon SVG independently so the tooltip position stays stable */
+.nav-social-link svg {
+  transition: transform 0.2s ease;
+}
+.nav-social-link:hover svg {
+  transform: scale(1.2);
+}
+
 .nav-social-link:hover {
   color: #00FF00;
   border-color: rgba(0, 255, 0, 0.3);
@@ -120,6 +129,35 @@
   color: #88CFFF;
   border-color: rgba(91, 168, 212, 0.35);
   text-shadow: 0 0 8px rgba(91, 168, 212, 0.55);
+}
+
+/* Social icon tooltips */
+.nav-social-link[data-tooltip] {
+  position: relative;
+}
+
+.nav-social-link[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.92);
+  color: #00FF00;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 3px 8px;
+  border: 1px solid rgba(0, 255, 0, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.nav-social-link[data-tooltip]:hover::after {
+  opacity: 1;
 }
 
 /* Mobile */

@@ -146,7 +146,44 @@
   transition: opacity 0.5s ease 0.75s, transform 0.5s ease 0.75s;
 }
 .slide-active .slide-langs { opacity: 1; transform: translateY(0); }
-.slide-lang { font-size: 1.3rem; display: flex; align-items: center; }
+.slide-lang {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.slide-lang[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.92);
+  color: #00FF00;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 3px 7px;
+  border: 1px solid rgba(0, 255, 0, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+.slide-lang[data-tooltip]:hover::after { opacity: 1; }
+
+/* Language group separator */
+.lang-separator {
+  width: 1px;
+  height: 1.3rem;
+  background: rgba(0, 255, 0, 0.25);
+  align-self: center;
+  flex-shrink: 0;
+  margin: 0 0.2rem;
+}
 
 /* ── Animation panel ── */
 .slide-anim-panel {
@@ -426,6 +463,46 @@
   transition: opacity 0.5s ease 0.25s;
 }
 .streams-wrap.anim-active svg { opacity: 1; }
+
+/* ════════════════════════════════════
+   CHESS BOARD (Checked Out)
+════════════════════════════════════ */
+.chess-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chess-sq-flash {
+  opacity: 0;
+}
+.anim-active .chess-sq-flash {
+  animation: chess-sq-flash 2s ease-in-out infinite;
+}
+@keyframes chess-sq-flash {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+.chess-move-arrow {
+  opacity: 0;
+}
+.anim-active .chess-move-arrow {
+  animation: chess-arrow-pulse 2s ease-in-out 0.4s infinite;
+}
+@keyframes chess-arrow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.95; }
+}
+
+.chess-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  color: rgba(0,255,0,0.4);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
 
 /* ════════════════════════════════════
    RESPONSIVE

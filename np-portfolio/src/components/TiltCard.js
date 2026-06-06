@@ -53,7 +53,7 @@ const TiltCard = ({ project, onClick, animDelay = 0, visible = true }) => {
             {project.demoUrl?.trim() && (
               <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
                 className="card-link" onClick={(e) => e.stopPropagation()}>
-                [ DEMO ]
+                [ {project.demoLabel || 'DEMO'} ]
               </a>
             )}
             <a href={project.sourceCodeUrl} target="_blank" rel="noopener noreferrer"
@@ -63,11 +63,13 @@ const TiltCard = ({ project, onClick, animDelay = 0, visible = true }) => {
           </div>
         </div>
         <div className="card-icons">
-          {project.languages.map((lang) => (
-            <span key={lang} title={lang} className="card-icon">
-              {languageIcons[lang]}
-            </span>
-          ))}
+          {project.languages.map((lang, i) =>
+            lang === '|'
+              ? <span key={`sep-${i}`} className="lang-separator" aria-hidden="true" />
+              : <span key={lang} data-tooltip={lang} className="card-icon">
+                  {languageIcons[lang]}
+                </span>
+          )}
         </div>
       </div>
     </div>

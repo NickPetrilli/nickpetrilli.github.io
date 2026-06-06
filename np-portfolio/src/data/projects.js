@@ -1,9 +1,10 @@
 import React from 'react';
-import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa';
+import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3, FaChartLine } from 'react-icons/fa';
+import { GiBearFace } from 'react-icons/gi';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
-import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven } from 'react-icons/si';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps, SiThreedotjs, SiFramer } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 
 export const projects = [
@@ -24,7 +25,7 @@ export const projects = [
     imageUrl: '/images/FoxLift.png',
     demoUrl: '/videos/FoxLiftDemos.mp4',
     sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
-    languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
+    languages: ['React Native', 'JavaScript', 'MySQL', 'Linux', 'Google Maps API'],
     longDescription: 'FoxLift is a mobile ride sharing application for students to carpool to shared destinations. Users begin by creating an account via Google Authentication. The Home page uses the Google Maps API to select origin and destination, showing the route, distance, and trip duration. I worked on the frontend portion, incorporating the Google Maps API and features in the Activity and Messaging pages.',
   },
   {
@@ -33,6 +34,7 @@ export const projects = [
     description: 'A browser based operating system built in TypeScript.',
     imageUrl: '/images/OS.png',
     demoUrl: 'https://nickos-dev.vercel.app/',
+    demoLabel: 'APP',
     sourceCodeUrl: 'https://github.com/NickPetrilli/OperatingSystems',
     languages: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
     longDescription: 'NickOS is a browser-based Operating System in TypeScript spanning four phases: shell/CLI improvements, memory management and process control (loading 6502 machine code, PCBs), concurrent execution with Round Robin scheduling, and finally a local file system with virtual memory management.',
@@ -51,7 +53,7 @@ export const projects = [
     id: 5, animKey: 'circuit',
     title: 'tsiraM-6502',
     description: 'A virtual 6502 microprocessor simulation in TypeScript.',
-    imageUrl: '/images/tsiraM.jpeg',
+    imageUrl: '/images/tsiraM.png',
     demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/tsiraM-6502',
     languages: ['TypeScript'],
@@ -61,17 +63,18 @@ export const projects = [
     id: 6, animKey: 'clusters',
     title: 'Covid-19 Pooled Testing Simulator',
     description: 'Pooled testing simulator based on the system used at Marist College to test students for Covid.',
-    imageUrl: '/images/covid.jpg',
-    demoUrl: '',
+    imageUrl: '/images/covid.png',
+    demoUrl: 'https://poolsight-dev.vercel.app/',
+    demoLabel: 'APP',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
-    languages: ['Java'],
+    languages: ['Java', '|', 'TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Three.js', 'Zustand', 'Framer Motion'],
     longDescription: 'A Java simulation of pooled COVID-19 testing. Groups of 8 are tested collectively; positive groups split into two groups of 4, and if both positive, each member is tested individually. At 2% infection rate: 1,000 people → ~255 tests — roughly 1 test per 4 people.',
   },
   {
     id: 7, animKey: 'neural',
     title: 'AI Labs',
     description: 'Convolutional neural networks with backpropagation for the Iris, MNIST, and Fashion MNIST datasets.',
-    imageUrl: '/images/neural-network.jpg',
+    imageUrl: '/images/neural-network.png',
     demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/AI',
     languages: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'NumPy'],
@@ -81,11 +84,22 @@ export const projects = [
     id: 8, animKey: 'streams',
     title: 'Parallel Processing',
     description: 'Pattern matching in C++ using threads, OpenMP, MPI, and CUDA on large text files.',
-    imageUrl: '/images/microchip.jpg',
+    imageUrl: '/images/microchip.png',
     demoUrl: '',
     sourceCodeUrl: 'https://github.com/NickPetrilli/ParallelProcessing',
     languages: ['C++', 'Python'],
     longDescription: 'Four parallel implementations: serial C++ baseline, OpenMP multi-core parallelization, MPI for distributed memory clusters, and CUDA GPU implementation with thousands of parallel threads. Python scripts monitor CPU/GPU runtime and memory usage per approach.',
+  },
+  {
+    id: 9, animKey: 'chess',
+    title: 'Checked Out',
+    description: 'A free Chess.com game analyzer powered by Stockfish 18 Lite — replay games with engine evaluation, accuracy scoring, move heatmaps, and a live-analysis playground.',
+    imageUrl: '/images/checkedout.png',
+    demoUrl: 'https://checked-out.vercel.app/',
+    demoLabel: 'APP',
+    sourceCodeUrl: 'https://github.com/NickPetrilli/checked-out',
+    languages: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Chess.com API'],
+    longDescription: 'Checked Out is a free alternative to Chess.com\'s premium analysis tools. Load any public Chess.com user\'s game history and replay games move-by-move with full Stockfish 18 Lite engine evaluation — running entirely in the browser as a WebAssembly Web Worker with no server required. The Analyzer flags blunders, mistakes, and inaccuracies by centipawn loss, shows Lichess-formula accuracy rings per player, best-move arrows, engine continuation lines, and an AI coach that explains why a move was bad. A Move Heatmap visualizes square activity across all loaded games (filterable by piece, color, and result), and a Playground offers free-play with live MultiPV analysis (top 5 lines, depth 18), hint arrows, and opening detection across ~50 openings. Built with React 19, TypeScript, Vite, and Tailwind CSS, using the Chess.com public API.',
   },
 ];
 
@@ -109,4 +123,28 @@ export const languageIcons = {
   'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
+  'Three.js':        <SiThreedotjs style={{ color: '#ffffff' }} />,
+  'Zustand':         <GiBearFace style={{ color: '#c07a3b' }} />,
+  'Framer Motion':   <SiFramer style={{ color: '#0055FF' }} />,
+  'Recharts':        <FaChartLine style={{ color: '#22C55E' }} />,
+  'Google Maps API': (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
+      <defs>
+        <linearGradient id="gm-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stopColor="#EA4335" />
+          <stop offset="33%"  stopColor="#FBBC05" />
+          <stop offset="66%"  stopColor="#34A853" />
+          <stop offset="100%" stopColor="#4285F4" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#gm-grad)"
+        fillRule="evenodd"
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+      />
+    </svg>
+  ),
+  'Tailwind CSS':    <SiTailwindcss style={{ color: '#38BDF8' }} />,
+  'Vite':            <SiVite style={{ color: '#646CFF' }} />,
+  'Chess.com API':   <SiChessdotcom style={{ color: '#81B64C' }} />,
 };
