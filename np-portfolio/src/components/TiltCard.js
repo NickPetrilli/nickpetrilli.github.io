@@ -53,7 +53,7 @@ const TiltCard = ({ project, onClick, animDelay = 0, visible = true }) => {
             {project.demoUrl?.trim() && (
               <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
                 className="card-link" onClick={(e) => e.stopPropagation()}>
-                [ DEMO ]
+                [ {project.demoLabel || 'DEMO'} ]
               </a>
             )}
             <a href={project.sourceCodeUrl} target="_blank" rel="noopener noreferrer"

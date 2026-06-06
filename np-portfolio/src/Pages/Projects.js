@@ -37,7 +37,7 @@ const Projects = () => {
               <div className="modal-links">
                 {selectedProject.demoUrl?.trim() && (
                   <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer" className="card-link">
-                    [ VIEW DEMO ]
+                    [ VIEW {selectedProject.demoLabel || 'DEMO'} ]
                   </a>
                 )}
                 <a href={selectedProject.sourceCodeUrl} target="_blank" rel="noopener noreferrer" className="card-link">

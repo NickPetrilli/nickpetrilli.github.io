@@ -40,7 +40,7 @@ const ProjectSlide = ({ project, index, AnimComponent }) => {
         <div className="slide-links">
           {project.demoUrl?.trim() && (
             <a href={project.demoUrl} className="slide-btn"
-              target="_blank" rel="noopener noreferrer">[ DEMO ]</a>
+              target="_blank" rel="noopener noreferrer">[ {project.demoLabel || 'DEMO'} ]</a>
           )}
           <a href={project.sourceCodeUrl} className="slide-btn"
             target="_blank" rel="noopener noreferrer">[ CODE ]</a>
