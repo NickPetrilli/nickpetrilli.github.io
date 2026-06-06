@@ -1,9 +1,10 @@
 import React from 'react';
-import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa';
+import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3, FaChartLine } from 'react-icons/fa';
+import { GiBearFace } from 'react-icons/gi';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
-import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps, SiThreedotjs } from 'react-icons/si';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps, SiThreedotjs, SiFramer } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 
 export const projects = [
@@ -66,7 +67,7 @@ export const projects = [
     demoUrl: 'https://poolsight-dev.vercel.app/',
     demoLabel: 'APP',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
-    languages: ['Java', '|', 'TypeScript', 'React', 'Vite', 'Three.js'],
+    languages: ['Java', '|', 'TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Three.js', 'Zustand', 'Framer Motion', 'Recharts'],
     longDescription: 'A Java simulation of pooled COVID-19 testing. Groups of 8 are tested collectively; positive groups split into two groups of 4, and if both positive, each member is tested individually. At 2% infection rate: 1,000 people → ~255 tests — roughly 1 test per 4 people.',
   },
   {
@@ -123,6 +124,9 @@ export const languageIcons = {
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
   'Three.js':        <SiThreedotjs style={{ color: '#ffffff' }} />,
+  'Zustand':         <GiBearFace style={{ color: '#c07a3b' }} />,
+  'Framer Motion':   <SiFramer style={{ color: '#0055FF' }} />,
+  'Recharts':        <FaChartLine style={{ color: '#22C55E' }} />,
   'Google Maps API': (
     <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
       <defs>
