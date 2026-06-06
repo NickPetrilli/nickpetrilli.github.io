@@ -3,7 +3,7 @@ import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
-import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom } from 'react-icons/si';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 
 export const projects = [
@@ -24,7 +24,7 @@ export const projects = [
     imageUrl: '/images/FoxLift.png',
     demoUrl: '/videos/FoxLiftDemos.mp4',
     sourceCodeUrl: 'https://github.com/NickPetrilli/RideSharingApp',
-    languages: ['React Native', 'JavaScript', 'MySQL', 'Linux'],
+    languages: ['React Native', 'JavaScript', 'MySQL', 'Linux', 'Google Maps API'],
     longDescription: 'FoxLift is a mobile ride sharing application for students to carpool to shared destinations. Users begin by creating an account via Google Authentication. The Home page uses the Google Maps API to select origin and destination, showing the route, distance, and trip duration. I worked on the frontend portion, incorporating the Google Maps API and features in the Activity and Messaging pages.',
   },
   {
@@ -122,6 +122,7 @@ export const languageIcons = {
   'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
+  'Google Maps API': <SiGooglemaps style={{ color: '#4285F4' }} />,
   'Tailwind CSS':    <SiTailwindcss style={{ color: '#38BDF8' }} />,
   'Vite':            <SiVite style={{ color: '#646CFF' }} />,
   'Chess.com API':   <SiChessdotcom style={{ color: '#81B64C' }} />,
