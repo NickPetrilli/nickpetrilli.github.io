@@ -45,11 +45,13 @@ const Projects = () => {
                 </a>
               </div>
               <div className="modal-icons">
-                {selectedProject.languages.map((lang) => (
-                  <span key={lang} data-tooltip={lang} className="card-icon">
-                    {languageIcons[lang]}
-                  </span>
-                ))}
+                {selectedProject.languages.map((lang, i) =>
+                  lang === '|'
+                    ? <span key={`sep-${i}`} className="lang-separator" aria-hidden="true" />
+                    : <span key={lang} data-tooltip={lang} className="card-icon">
+                        {languageIcons[lang]}
+                      </span>
+                )}
               </div>
             </div>
           </div>

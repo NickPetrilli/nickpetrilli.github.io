@@ -63,11 +63,13 @@ const TiltCard = ({ project, onClick, animDelay = 0, visible = true }) => {
           </div>
         </div>
         <div className="card-icons">
-          {project.languages.map((lang) => (
-            <span key={lang} data-tooltip={lang} className="card-icon">
-              {languageIcons[lang]}
-            </span>
-          ))}
+          {project.languages.map((lang, i) =>
+            lang === '|'
+              ? <span key={`sep-${i}`} className="lang-separator" aria-hidden="true" />
+              : <span key={lang} data-tooltip={lang} className="card-icon">
+                  {languageIcons[lang]}
+                </span>
+          )}
         </div>
       </div>
     </div>
