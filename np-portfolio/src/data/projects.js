@@ -122,7 +122,23 @@ export const languageIcons = {
   'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
-  'Google Maps API': <SiGooglemaps style={{ color: '#4285F4' }} />,
+  'Google Maps API': (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
+      <defs>
+        <linearGradient id="gm-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stopColor="#EA4335" />
+          <stop offset="33%"  stopColor="#FBBC05" />
+          <stop offset="66%"  stopColor="#34A853" />
+          <stop offset="100%" stopColor="#4285F4" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#gm-grad)"
+        fillRule="evenodd"
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+      />
+    </svg>
+  ),
   'Tailwind CSS':    <SiTailwindcss style={{ color: '#38BDF8' }} />,
   'Vite':            <SiVite style={{ color: '#646CFF' }} />,
   'Chess.com API':   <SiChessdotcom style={{ color: '#81B64C' }} />,
