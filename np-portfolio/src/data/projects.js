@@ -3,7 +3,7 @@ import { FaJs, FaReact, FaPython, FaJava, FaHtml5, FaCss3 } from 'react-icons/fa
 import { BiLogoTypescript } from 'react-icons/bi';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
-import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps } from 'react-icons/si';
+import { SiMysql, SiSqlite, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiCplusplus, SiSpringboot, SiApachemaven, SiTailwindcss, SiVite, SiChessdotcom, SiGooglemaps, SiThreedotjs } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 
 export const projects = [
@@ -66,7 +66,7 @@ export const projects = [
     demoUrl: 'https://poolsight-dev.vercel.app/',
     demoLabel: 'APP',
     sourceCodeUrl: 'https://github.com/NickPetrilli/Algorithms/tree/main/Projects/Semester%20Project',
-    languages: ['Java'],
+    languages: ['Java', '|', 'TypeScript', 'React', 'Vite', 'Three.js'],
     longDescription: 'A Java simulation of pooled COVID-19 testing. Groups of 8 are tested collectively; positive groups split into two groups of 4, and if both positive, each member is tested individually. At 2% infection rate: 1,000 people → ~255 tests — roughly 1 test per 4 people.',
   },
   {
@@ -122,10 +122,11 @@ export const languageIcons = {
   'SQLite':          <SiSqlite style={{ color: '#44A1C8' }} />,
   'C++':             <SiCplusplus style={{ color: '#1572B6' }} />,
   'Linux':           <FcLinux />,
+  'Three.js':        <SiThreedotjs style={{ color: '#ffffff' }} />,
   'Google Maps API': (
     <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
       <defs>
-        <linearGradient id="gm-grad" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id="gm-grad" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%"   stopColor="#EA4335" />
           <stop offset="33%"  stopColor="#FBBC05" />
           <stop offset="66%"  stopColor="#34A853" />
