@@ -47,6 +47,7 @@ const NavBar = () => {
             href={href}
             className={`nav-social-link ${cls}`}
             aria-label={label}
+            data-tooltip={label}
             target={href.startsWith('mailto') ? undefined : '_blank'}
             rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
           >
